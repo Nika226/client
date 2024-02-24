@@ -1,0 +1,15 @@
+.category {
+  border: 2px solid green;
+  margin-bottom: 15px;
+}
+
+.img_size {
+  width: 195px;
+  height: 195px;
+}
+
+.box {
+  display: flex;
+  gap: 5%;
+  flex-wrap: wrap;
+}
