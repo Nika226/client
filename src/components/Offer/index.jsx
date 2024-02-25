@@ -1,6 +1,6 @@
 import { PhoneForm } from "../";
-import imageGnome from "../../media/images/dwarf.png";
-import styles from "./Offer.module.css";
+import imageGnome from "../../assets/images/dwarf.png";
+import styles from "./index.module.css";
 
 export const Offer = () => {
   return (
