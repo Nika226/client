@@ -1,4 +1,4 @@
-import PhoneForm from "../PhoneForm/PhoneForm.jsx";
+import { PhoneForm } from "../PhoneForm/PhoneForm";
 import imageGnome from "../../assets/images/dwarf.png";
 import styles from "./index.module.css";
 

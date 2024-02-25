@@ -1,5 +1,5 @@
 import { forwardRef } from "react";
-import styles from "./Index.module.css";
+import styles from "./index.module.css";
 
 export const Input = forwardRef(
   (
