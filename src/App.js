@@ -10,7 +10,7 @@ import Product from "./pages/Product/index.jsx";
 import Cart from "./pages/Cart/index.jsx";
 import LoginSignup from "./pages/LoginSignup/index.jsx";
 import PageNotFound from "./pages/PageNotFound/index.jsx";
-import SwiperComponent from "./components/Swiper/Swiper.jsx";
+import SwiperComponent from "./components/Swiper/index.jsx";
 import CategoriesList from "./components/CategoriesList/index.jsx";
 
 function App() {

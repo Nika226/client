@@ -3,7 +3,7 @@ import { SlSocialInstagram } from "react-icons/sl";
 import { SiWhatsapp } from "react-icons/si";
 import styles from "./index.module.css";
 
-export const Contacts = () => {
+const Contacts = () => {
   return (
     <section className={styles.contacts}>
       <div className={styles.links}>
@@ -48,3 +48,4 @@ export const Contacts = () => {
     </section>
   );
 };
+export default Contacts;
