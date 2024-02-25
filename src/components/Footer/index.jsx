@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./index.module.css";
-import { Contacts, Map } from "../";
+import Contacts from "../Contacts";
+import Map from "../Map";
 
 const Footer = () => {
   return (
