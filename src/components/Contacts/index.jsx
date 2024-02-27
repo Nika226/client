@@ -5,45 +5,44 @@ import styles from "./index.module.css";
 
 const Contacts = () => {
   return (
-    <section className={styles.contacts}>
-      <div className={styles.links}>
-        <h2 className="title">Contacts</h2>
-        <Link className={styles.phone} to="tel:+49 999 999 99 99">
-          +49 999 999 99 99
-        </Link>
-        <ul className={styles.media_list}>
-          <li>
-            <Link
-              className={styles.media_item}
-              to="https://www.linkedin.com/school/tel-ran-de/"
-              target="_blank"
-            >
-              <SlSocialInstagram />
-              <p>instagram</p>
+    <section>
+      <h2 className={styles.title}>Contact</h2>
+      <div className={styles.divInfo}>
+        <div>
+          <div className={styles.infoText}>
+            <p className={styles.paragraphText}>Phone</p>
+            <Link className={styles.Info} to="tel:+49 999 999 99 99">
+              +49 999 999 99 99
             </Link>
-          </li>
-          <li>
-            <Link
-              className={styles.media_item}
-              to="https://wa.me/+499999999999"
-              target="_blank"
-            >
-              <SiWhatsapp />
-              <p>WhatsApp</p>
-            </Link>
-          </li>
-        </ul>
-      </div>
-      <div className={styles.address}>
-        <h2 className="title">Address</h2>
-        <address className={styles.address_wrapper}>
-          <Link>
-            <p className={styles.address_link}>Linkstraße 2, 8 OG, 10785,</p>
-            <span className={styles.address_link}>Berlin, Deutschland</span>
-          </Link>
-        </address>
-        <p className={styles.working_schedule}>Working Hours:</p>
-        <p className={styles.working_time}>24 hours a day</p>
+          </div>
+          <div className={styles.infoText}>
+            <p className={styles.paragraphText}>Address</p>
+            <p className={styles.Info}>
+              Linkstraße 2, 8 OG, 10785, Berlin, Deutschland
+            </p>
+          </div>
+        </div>
+        <div>
+          <div className={`${styles.infoText} ${styles.infotextTwo} `}>
+            <p className={styles.paragraphText}>Socials</p>
+            <div className={styles.footerImg}>
+              <Link
+                to="https://www.linkedin.com/school/tel-ran-de/"
+                target="_blank"
+              >
+                <SlSocialInstagram />
+              </Link>
+              <Link to="https://wa.me/+499999999999" target="_blank">
+                <SiWhatsapp />
+              </Link>
+            </div>
+          </div>
+
+          <div className={`${styles.infoText} ${styles.infotextTwo}`}>
+            <p className={styles.paragraphText}>Working Hours</p>
+            <p className={styles.paragraphInfoInfo}>24 hours a day</p>
+          </div>
+        </div>
       </div>
     </section>
   );

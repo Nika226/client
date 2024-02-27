@@ -22,6 +22,7 @@ export default function SwiperComponent() {
 
   return (
     <>
+      <h2 className="category">Categories</h2>
       <Swiper
         slidesPerView={4}
         spaceBetween={7}
