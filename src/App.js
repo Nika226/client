@@ -27,7 +27,11 @@ function App() {
           <Route path="/cart" element={<Cart />} />
           <Route path="/login" element={<LoginSignup />} />
           <Route path="*" element={<PageNotFound />} />
+          <Route
+            render={({ location }) => location.pathname !== "*" && <Footer />}
+          />
         </Routes>
+
         <CategoriesList />
         <Footer />
       </BrowserRouter>
