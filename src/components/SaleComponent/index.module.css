@@ -1,87 +1,62 @@
-.allProductsDiv {
-  padding: 40px 40px;
+.saleComponent {
+  padding: 20px 20px;
 }
-
-.allProductsBtn {
-  padding: 8px 16px;
-  border-radius: 6px;
-  border: 1px solid #ddd;
-  color: #282828;
-  cursor: pointer;
-  margin-left: 16px;
-}
-
-.allProductsTitle {
-  color: #282828;
-  font-size: 64px;
-  font-weight: 700;
-  margin-top: 40px;
-}
-
-.inputsSorted {
+.titleBtnDiv {
   display: flex;
   text-align: center;
   align-items: center;
-  gap: 40px;
+}
+.componentTitle {
+  color: #282828;
+  font-size: 64px;
+  font-weight: 700;
+}
+.componentBar {
+  margin-left: 32px;
+  width: 100%;
+  height: 1px;
+  background: #ddd;
+}
+.componentBtn {
+  padding: 8px 16px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  color: #8b8b8b;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 500;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.updateBtn {
   margin-top: 40px;
   margin-bottom: 40px;
-}
-
-.allInputs {
-  display: flex;
-  gap: 40px;
-}
-
-.priceInputText {
-  display: flex;
-}
-
-.priceText,
-.discountPar,
-label {
-  font-size: 20px;
-  color: #282828;
-  font-weight: 600;
-}
-
-.inputsSorted input {
   padding: 8px 16px;
   border-radius: 6px;
-  border: 1px solid #ddd;
-  outline: none;
+  background: #393;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 600;
+  transition: 0.5s;
 }
-
-.priceSort {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  background-image: url("../../assets/images/downIcon.svg");
-  background-repeat: no-repeat;
-  background-position: right 10px center;
-  width: 200px;
-  padding: 8px 38px 8px 16px;
-  border-radius: 6px;
-  border: 1px solid #ddd;
-  outline: none;
-  font-size: 16px;
-  color: #282828;
-  font-weight: 500;
-  margin-left: 16px;
-  outline: none;
+.updateBtn:hover {
+  background: #282828;
+  transition: 0.5s;
 }
-
 .loading {
   color: #282828;
   font-size: 20px;
   font-weight: 600;
 }
-
 .saleDiv {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 32px;
 }
-
 .product {
   border-radius: 12px;
   border: 1px solid #ddd;
@@ -91,19 +66,16 @@ label {
   transition: 0.5s;
   position: relative;
 }
-
 .product:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.33);
   transition: 0.5s;
 }
-
 .saleImg {
   width: 316px;
   height: 284px;
   border-radius: 12px 12px 0 0;
   border: 1px solid #ddd;
 }
-
 .addToCartBtn {
   display: none;
   position: absolute;
@@ -122,12 +94,10 @@ label {
   transition: 0.5s;
   cursor: pointer;
 }
-
 .product:hover .addToCartBtn {
   display: block;
   transition: 0.5s;
 }
-
 .addToCartBtn:not(.addedToCart):hover {
   background: #282828;
   transition: 0.5s;
@@ -149,13 +119,11 @@ label {
   border-radius: 6px;
   background: #393;
 }
-
 .percentDiv p {
   color: #fff;
   font-size: 20px;
   font-weight: 600;
 }
-
 .productName {
   overflow: hidden;
   color: #282828;
@@ -164,20 +132,17 @@ label {
   white-space: nowrap;
   padding: 5px 32px 32px 32px;
 }
-
 .price {
   display: flex;
   justify-content: flex-start;
   gap: 16px;
   margin-left: 32px;
 }
-
 .dscPrice {
   color: #282828;
   font-size: 40px;
   font-weight: 600;
 }
-
 .originalPrice {
   color: #8b8b8b;
   font-size: 20px;
@@ -186,121 +151,123 @@ label {
   text-decoration: line-through;
 }
 @media (max-width: 1000px) {
-  .allProductsDiv {
-    padding: 20px 40px;
+  .saleComponent {
+    padding: 40px 20px;
   }
   .saleDiv {
-    grid-template-columns: repeat(3, 1fr);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
   }
   .product {
     width: 225px;
+    height: 400px;
   }
   .saleImg {
     width: 225px;
+    height: 250px;
   }
   .addToCartBtn {
     width: 190px;
-    white-space: nowrap;
-    text-align: center;
-    padding: 8px 12px;
   }
 }
 @media (max-width: 768px) {
-  .allProductsDiv {
-    width: 728px;
-    padding: 32px 20px;
-  }
-  .allProductsTitle {
+  .componentTitle {
     font-size: 56px;
-    margin-top: 32px;
-  }
-  .allInputs {
-    gap: 10px;
   }
   .saleDiv {
-    grid-template-columns: repeat(2, 1fr);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 20px;
-    width: 728px;
-  }
-
-  .span {
-    display: flex;
-  }
-  .inputsSorted {
-    gap: 10px;
-    width: 728px;
-  }
-  .inputsSorted input {
-    width: 112px;
   }
   .product {
-    width: 350px;
+    width: 354px;
+    height: 400px;
   }
   .saleImg {
-    width: 350px;
+    width: 354px;
+    height: 250px;
   }
   .addToCartBtn {
     width: 290px;
-    margin-left: 29px;
+    margin-left: 30px;
+    margin-bottom: 15px;
   }
 }
 @media (max-width: 480px) {
-  .allProductsBtn {
-    display: none;
+  .saleComponent {
+    padding: 26px 20px;
   }
-  .allProductsDiv {
-    padding: 20px 32px;
-  }
-  .allProductsTitle {
+  .componentTitle {
     font-size: 48px;
-    width: 340px;
   }
-  .inputsSorted {
-    display: grid;
-    grid-template-columns: 1fr;
-    align-items: center;
-    gap: 15px;
-    width: 440px;
+  .componentBtn {
+    width: 89px;
+    font-size: 16px;
   }
-  .product {
-    width: 200px;
+  .updateBtn {
+    width: 89px;
+    font-size: 16px;
   }
   .saleImg {
-    width: 200px;
+    width: 210px;
+    height: 220px;
   }
-  .saleDiv {
-    width: 430px;
-  }
-  .allProductsDiv {
-    width: 440px;
+  .product {
+    width: 210px;
+    height: 350px;
   }
   .addToCartBtn {
-    width: 140px;
+    width: 150px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    white-space: nowrap;
+  }
+  .dscPrice {
+    font-size: 36px;
+  }
+  .originalPrice {
     font-size: 18px;
   }
 }
 @media (max-width: 360px) {
-  .allProductsTitle {
+  .componentBar {
+    display: none;
+  }
+  .saleComponent {
+    position: relative;
+  }
+  .componentTitle {
     font-size: 40px;
+    padding: 10px 20px;
+  }
+  .updateBtn {
+    width: 57px;
+    font-size: 10px;
+    padding: 5px 8px;
   }
   .saleDiv {
+    display: grid;
     grid-template-columns: 1fr;
-    width: 360px;
-  }
-  .product {
-    width: 320px;
+    gap: 20px;
   }
   .saleImg {
     width: 320px;
+    height: 220px;
+  }
+  .product {
+    width: 320px;
+    height: 350px;
   }
   .addToCartBtn {
     width: 260px;
-    font-size: 18px;
   }
-  .allProductsDiv {
-    width: 360px;
-  }
-  .inputsSorted {
-    width: 360px;
+  .componentBtn {
+    position: absolute;
+    width: 60px;
+    font-size: 10px;
+    padding: 5px 8px;
+    bottom: -25px;
+    left: 150px;
   }
 }

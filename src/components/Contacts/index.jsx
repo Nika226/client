@@ -27,7 +27,7 @@ const Contacts = () => {
             <p className={styles.paragraphText}>Socials</p>
             <div className={styles.footerImg}>
               <Link
-                to="https://www.linkedin.com/school/tel-ran-de/"
+                to="https://www.instagram.com/startainstitute/"
                 target="_blank"
               >
                 <SlSocialInstagram />

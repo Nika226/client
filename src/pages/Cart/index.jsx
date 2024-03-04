@@ -1,31 +1,19 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { getProducts, addToBasket } from "../../storage/slices/productSlices";
-
-const Cart = () => {
-  const dispatch = useDispatch();
-  const { productsList, basket } = useSelector((state) => state.products);
-
+import { useSelector } from "react-redux";
+import EmptyShoppingCart from "../../components/AlertShoppingCart/index.jsx";
+import FilledShoppingCart from "../../components/FilledShoppingCart/index.jsx";
+import { setDocumentTitle } from "../../utils/setDocumentTitle";
+import { useEffect } from "react";
+function ShoppingCart() {
   useEffect(() => {
-    dispatch(getProducts());
+    setDocumentTitle("shoppingCart");
   }, []);
 
+  const cartItems = useSelector((state) => state.products.cartItems);
   return (
-    <>
-      <div>
-        {productsList.map((product) => (
-          <div
-            onClick={() => dispatch(addToBasket(product.id))}
-            key={product.id}
-          >
-            <img src={"http://localhost:3333" + product.image}></img>
-            <span>{product.price}$</span>
-            <h3>{product.title}</h3>
-          </div>
-        ))}
-      </div>
-    </>
+    <div>
+      {cartItems.length > 0 ? <FilledShoppingCart /> : <EmptyShoppingCart />}
+    </div>
   );
-};
+}
 
-export default Cart;
+export default ShoppingCart;

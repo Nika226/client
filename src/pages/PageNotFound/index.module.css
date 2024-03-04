@@ -41,46 +41,46 @@
   transition: 0.5s;
 }
 
-.ContainerDiv button:hover {
+.containerNf button:hover {
   background: #282828;
   transition: 0.5s;
 }
 @media (max-width: 768px) {
-  .notFoundDiv img {
+  .containerNf img {
     width: 648px;
   }
-  .notFoundDiv h3 {
+  .containerNf h3 {
     font-size: 56px;
   }
 }
 @media (max-width: 480px) {
-  .notFoundDiv {
+  .containerNf {
     padding: 0 20px;
   }
-  .notFoundDiv img {
+  .containerNf img {
     width: 440px;
   }
-  .notFoundDiv h3 {
+  .containerNf h3 {
     font-size: 48px;
   }
-  .notFoundDiv p {
+  .containerNf p {
     font-size: 18px;
     width: 440px;
   }
-  .notFoundDiv button {
+  .containerNf button {
     width: 191px;
     font-size: 18px;
     white-space: nowrap;
   }
 }
 @media (max-width: 360px) {
-  .notFoundDiv img {
+  .containerNf img {
     width: 320px;
   }
-  .notFoundDiv h3 {
+  .containerNf h3 {
     font-size: 40px;
   }
-  .notFoundDiv p {
+  .containerNf p {
     width: 320px;
   }
 }

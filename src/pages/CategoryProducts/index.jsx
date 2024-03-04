@@ -1,83 +1,85 @@
+import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import MainPageBtn from "../../components/MainButton/index.jsx";
-import { useEffect, useState } from "react";
-import { fetchProducts } from "../../storage/slices/productSlice";
+import { fetchProductsByCategory } from "../../storage/slices/categoryProductsSlice";
 import styles from "./index.module.css";
+import { useEffect, useState } from "react";
+import MainPageBtn from "../../components/MainButton/index.jsx";
 import downIcon from "../../assets/images/downIcon.svg";
 import upIcon from "../../assets/images/upIcon.png";
-import { useNavigate } from "react-router-dom";
 import { addToCart } from "../../storage/slices/productSlice";
 import { calculateDiscountPercent } from "../../utils/utils";
 import { sortProducts } from "../../utils/sortProducts";
 import { setDocumentTitle } from "../../utils/setDocumentTitle";
+import { fetchCategories } from "../../storage/slices/categoriesSlice";
 
-function AllProducts() {
+function CategoryProducts() {
+  const { categoryId } = useParams();
   const dispatch = useDispatch();
-  const products = useSelector((state) => state.products.products);
-  const status = useSelector((state) => state.products.status);
-
-  const [displayedProducts, setDisplayedProducts] = useState([]);
-  const [priceFrom, setPriceFrom] = useState("");
-  const [priceTo, setPriceTo] = useState("");
-  const [showDiscounted, setShowDiscounted] = useState(false);
+  const products = useSelector(
+    (state) => state.categoryProducts.productsByCategory[categoryId]
+  );
+  const status = useSelector((state) => state.categoryProducts.status);
+  const navigate = useNavigate();
   const [isSelectOpen, setIsSelectOpen] = useState(false);
-  const [sortValue, setSortValue] = useState("");
-  const cartItems = useSelector((state) => state.products.cartItems);
+  const [minPrice, setMinPrice] = useState("");
+  const [maxPrice, setMaxPrice] = useState("");
+  const [showDiscounted, setShowDiscounted] = useState(false);
+  const [sorting, setSorting] = useState("byDefault");
 
-  const handleAddToCart = (productId) => {
-    const product = products.find((p) => p.id === productId);
-    if (product) {
-      dispatch(addToCart({ product, quantity: 1 }));
-    }
+  const categoryIdNumber = parseInt(categoryId, 10);
+  const categories = useSelector((state) => state.categories.categories);
+  const category = categories.find((cat) => cat.id === categoryIdNumber);
+  const cartItems = useSelector((state) => state.products.cartItems);
+  const [filteredProducts, setFilteredProducts] = useState([]);
+
+  useEffect(() => {
+    setDocumentTitle("categoriesProduct");
+    dispatch(fetchCategories());
+    dispatch(fetchProductsByCategory(categoryId));
+  }, [categoryId, dispatch]);
+
+  const handleAddToCart = (product) => {
+    dispatch(addToCart({ product, quantity: 1 }));
   };
 
   const isProductInCart = (productId) => {
     return cartItems.some((item) => item.id === productId);
   };
 
-  useEffect(() => {
-    setDocumentTitle("product");
-    dispatch(fetchProducts());
-  }, [dispatch]);
-
-  useEffect(() => {
-    setDisplayedProducts(products);
-  }, [products]);
-
-  useEffect(() => {
-    let updatedProducts = sortProducts(products, sortValue);
-
-    const fromPrice = priceFrom !== "" ? priceFrom : null;
-    const toPrice = priceTo !== "" ? priceTo : null;
-
-    updatedProducts = updatedProducts.filter((product) => {
-      const effectivePrice =
-        product.discont_price !== null ? product.discont_price : product.price;
-      return (
-        (fromPrice === null || effectivePrice >= fromPrice) &&
-        (toPrice === null || effectivePrice <= toPrice)
-      );
-    });
-
-    if (showDiscounted) {
-      updatedProducts = updatedProducts.filter(
-        (product) => product.discont_price !== null
-      );
-    }
-
-    setDisplayedProducts(updatedProducts);
-  }, [priceFrom, priceTo, showDiscounted, products, sortValue]);
-
-  function handleSortChange(event) {
-    setSortValue(event.target.value);
-  }
-
-  function handleDiscountCheckboxChange() {
-    setShowDiscounted(!showDiscounted);
-  }
-
   const toggleSelect = () => {
     setIsSelectOpen(!isSelectOpen);
+  };
+
+  const handleMinPriceChange = (e) => {
+    setMinPrice(e.target.value);
+  };
+
+  const handleMaxPriceChange = (e) => {
+    setMaxPrice(e.target.value);
+  };
+
+  useEffect(() => {
+    if (products?.data) {
+      let filteredProducts = products.data.filter((product) => {
+        const price = product.discont_price || product.price;
+        return (
+          (!showDiscounted || product.discont_price) &&
+          (!minPrice || price >= minPrice) &&
+          (!maxPrice || price <= maxPrice)
+        );
+      });
+
+      filteredProducts = sortProducts(filteredProducts, sorting);
+      setFilteredProducts(filteredProducts);
+    }
+  }, [products, minPrice, maxPrice, showDiscounted, sorting]);
+
+  const handleSortingChange = (e) => {
+    setSorting(e.target.value);
+  };
+
+  const handleShowDiscountedChange = (e) => {
+    setShowDiscounted(e.target.checked);
   };
 
   const navigateProduct = useNavigate();
@@ -89,22 +91,30 @@ function AllProducts() {
   return (
     <div className={styles.allProductsDiv}>
       <MainPageBtn />
-      <button className={styles.allProductsBtn}>All products</button>
-      <p className={styles.allProductsTitle}>All products</p>
+      <button
+        className={styles.categoriesBtn}
+        onClick={() => {
+          navigate("/categories");
+        }}
+      >
+        Categories
+      </button>
+      <button className={styles.toolsBtn}>{category?.title}</button>
+      <h3 className={styles.categoryProductTitle}>{category?.title}</h3>
       <div className={styles.allInputs}>
         <div className={styles.priceInputText}>
           <p className={styles.priceText}>Price</p>
           <input
             type="text"
             placeholder="from"
-            value={priceFrom}
-            onChange={(e) => setPriceFrom(e.target.value)}
+            value={minPrice}
+            onChange={handleMinPriceChange}
           />
           <input
             type="text"
             placeholder="to"
-            value={priceTo}
-            onChange={(e) => setPriceTo(e.target.value)}
+            value={maxPrice}
+            onChange={handleMaxPriceChange}
           />
         </div>
         <div className={styles.discountedInput}>
@@ -113,14 +123,14 @@ function AllProducts() {
             className={styles.checkbox}
             type="checkbox"
             checked={showDiscounted}
-            onChange={handleDiscountCheckboxChange}
+            onChange={handleShowDiscountedChange}
           />
         </div>
         <div className={styles.span}>
           <label>Sorted </label>
           <select
             className={styles.priceSort}
-            onChange={handleSortChange}
+            onChange={handleSortingChange}
             onClick={toggleSelect}
             style={{
               backgroundImage: `url(${isSelectOpen ? upIcon : downIcon})`,
@@ -136,7 +146,8 @@ function AllProducts() {
       <div className={styles.productsDiv}>
         {status === "loading" && <p className={styles.loading}>Loading...</p>}
         {status === "succeeded" &&
-          displayedProducts.map((product) => (
+          products &&
+          filteredProducts.map((product) => (
             <div className={styles.productCard} key={product.id}>
               <img
                 className={styles.productImg}
@@ -160,7 +171,7 @@ function AllProducts() {
                 className={`${styles.addToCartBtn} ${
                   isProductInCart(product.id) ? styles.addedToCart : ""
                 }`}
-                onClick={() => handleAddToCart(product.id)}
+                onClick={() => handleAddToCart(product)}
               >
                 {isProductInCart(product.id) ? "Added" : "Add to Cart"}
               </button>
@@ -184,4 +195,4 @@ function AllProducts() {
   );
 }
 
-export default AllProducts;
+export default CategoryProducts;

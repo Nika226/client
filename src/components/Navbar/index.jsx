@@ -2,14 +2,21 @@ import React, { useState } from "react";
 import styles from "./index.module.css";
 import logo from "../../assets/images/logo.svg";
 import cart_icon from "../../assets/images/cart_icon.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+  const navigate = useNavigate();
   const [menu, setMenu] = useState("Main page");
   return (
     <div className={styles.navbar}>
       <div className={styles.navlogo}>
-        <img src={logo} alt="" />
+        <img
+          src={logo}
+          alt="logo"
+          onClick={() => {
+            navigate("/");
+          }}
+        />
       </div>
       <ul className={styles.navmenu}>
         <li

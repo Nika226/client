@@ -10,8 +10,9 @@ import Product from "./pages/Product/index.jsx";
 import Cart from "./pages/Cart/index.jsx";
 import LoginSignup from "./pages/LoginSignup/index.jsx";
 import PageNotFound from "./pages/PageNotFound/index.jsx";
-import SwiperComponent from "./components/Swiper/index.jsx";
-import CategoriesList from "./components/CategoriesList/index.jsx";
+import CategoryProducts from "./pages/CategoryProducts/index.jsx";
+import ProductCard from "./pages/ProductCard/index.jsx";
+import ShoppingCart from "./pages/Cart/index.jsx";
 
 function App() {
   return (
@@ -23,8 +24,11 @@ function App() {
           <Route path="/categories" element={<Categories />} />
           <Route path="/allproducts" element={<Allproducts />} />
           <Route path="/allsales" element={<Allsales />} />
-          <Route path="product/:productId" element={<Product />} />
+          <Route path="/category/:categoryId" element={<CategoryProducts />} />
+          <Route path="/products/:id" element={<ProductCard />} />
+          <Route path="product/" element={<Product />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/shoppingCart/:id" element={<ShoppingCart />} />
           <Route path="/login" element={<LoginSignup />} />
           <Route path="*" element={<PageNotFound />} />
           <Route
@@ -32,7 +36,6 @@ function App() {
           />
         </Routes>
 
-        <CategoriesList />
         <Footer />
       </BrowserRouter>
     </div>
