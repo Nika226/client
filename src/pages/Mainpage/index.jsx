@@ -1,13 +1,25 @@
 import React from "react";
 import Slayder from "../../components/Slayder/index.jsx";
 import Offer from "../../components/Offer/index.jsx";
+import { useEffect, useRef } from "react";
 import SaleComponent from "../../components/SaleComponent/index.jsx";
 import styles from "./index.module.css";
-import { useSelector } from "react-redux";
+import { fetchCategories } from "../../storage/slices/categoriesSlice";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { setDocumentTitle } from "../../utils/setDocumentTitle";
 
-const Mainpage = () => {
+function Mainpage() {
+  const dispatch = useDispatch();
   const categories = useSelector((state) => state.categories.categories);
+  const status = useSelector((state) => state.categories.status);
+  useEffect(() => {
+    setDocumentTitle("home");
+    if (status === "idle") {
+      dispatch(fetchCategories());
+    }
+  }, [status, dispatch]);
+  const saleComponentRef = useRef(null);
 
   const navigate = useNavigate();
 
@@ -46,9 +58,10 @@ const Mainpage = () => {
       </div>
 
       <Offer />
+      <div ref={saleComponentRef}></div>
       <SaleComponent />
     </div>
   );
-};
+}
 
 export default Mainpage;
