@@ -1,5 +1,5 @@
 .allProductsDiv {
-  padding: 40px 40px;
+  padding: 10px 10px;
 }
 
 .allProductsBtn {
@@ -78,12 +78,12 @@ label {
 
 .saleDiv {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 32px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
 }
 
 .product {
-  border-radius: 12px;
+  border-radius: 10px;
   border: 1px solid #ddd;
   width: 316px;
   height: 420px;
@@ -176,13 +176,14 @@ label {
   color: #282828;
   font-size: 40px;
   font-weight: 600;
+  margin: -20px;
 }
 
 .originalPrice {
   color: #8b8b8b;
   font-size: 20px;
   font-weight: 500;
-  margin-top: 16px;
+  margin: 0px 0px 0px 25px;
   text-decoration: line-through;
 }
 @media (max-width: 1000px) {

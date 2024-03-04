@@ -25,6 +25,7 @@
   color: #282828;
   font-size: 64px;
   font-weight: 700;
+  margin: 10px;
 }
 .categoriesBar {
   background: #ddd;
@@ -45,18 +46,18 @@
   white-space: nowrap;
 }
 .categoriesImg {
-  width: 316px;
-  height: 350px;
+  width: 290px;
+  height: 310px;
   background-repeat: no-repeat;
-  border-radius: 12px 12px 0 0;
+  border-radius: 10px 10px 0 0;
 }
 .swipperDiv {
   display: flex;
   text-align: center;
-  padding-top: 40px;
   cursor: pointer;
   justify-content: space-between;
-  margin: 0 60px 0 40px;
+  margin: 3px 3px 0 3px;
+  padding: 20px;
 }
 .swipperTitle {
   color: #282828;

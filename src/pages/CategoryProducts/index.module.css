@@ -115,8 +115,8 @@ label {
   width: 316px;
   border: 1px solid transparent;
   border-top: none;
-  margin-top: 20px;
-  padding: 5px 32px 32px 32px;
+  margin-top: 3px;
+  padding: 5px 0px 0px 0px;
 }
 
 .productName {
@@ -146,6 +146,7 @@ label {
   color: #282828;
   font-size: 40px;
   font-weight: 600;
+  margin: 0px 0px 0px 25px;
 }
 
 .discountPrice {

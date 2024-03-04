@@ -13,7 +13,7 @@ export function setDocumentTitle(page) {
       document.title = "All sales";
       break;
     case "shoppingCart":
-      document.title = "Shopping cart";
+      document.title = "Cart";
       break;
     case "productCart":
       document.title = "Product cart";

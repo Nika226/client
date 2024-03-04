@@ -148,6 +148,7 @@ label {
   color: #282828;
   font-size: 40px;
   font-weight: 600;
+  margin: -10px;
 }
 
 .discountPrice {
@@ -156,6 +157,7 @@ label {
   font-weight: 500;
   margin-top: 16px;
   text-decoration: line-through;
+  margin: 0px 0px 0px 15px;
 }
 
 .addToCartBtn {
