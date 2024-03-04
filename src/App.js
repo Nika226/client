@@ -13,6 +13,7 @@ import PageNotFound from "./pages/PageNotFound/index.jsx";
 import CategoryProducts from "./pages/CategoryProducts/index.jsx";
 import ProductCard from "./pages/ProductCard/index.jsx";
 import ShoppingCart from "./pages/Cart/index.jsx";
+import BackToTopButton from "./components/BackToTopButton/index.jsx";
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
         </Routes>
 
         <Footer />
+        <BackToTopButton />
       </BrowserRouter>
     </div>
   );
