@@ -11,7 +11,7 @@ const Map = () => {
         height="400"
         allowfullscreen=""
         loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
+        referrerPolicy="no-referrer-when-downgrade"
       />
       <div>All rights reserved &copy 2023-2024</div>
     </div>

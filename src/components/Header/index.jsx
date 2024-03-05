@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./index.module.css";
-import logo from "../../assets/images/logo.png";
+import logo from "../../assets/images/";
 import cart_icon from "../../assets/images/cart_icon.png";
 
 const Header = () => {

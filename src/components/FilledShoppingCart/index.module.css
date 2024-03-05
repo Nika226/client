@@ -39,8 +39,8 @@
 
 .cartInfoDiv {
   display: flex;
-  margin: 0px 0px 0px 10px;
-  gap: 32px;
+  margin: 0px 0px 0px 5px;
+  gap: 22px;
   border-radius: 12px;
   border: 1px solid #ddd;
 }
