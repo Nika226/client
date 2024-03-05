@@ -1,5 +1,5 @@
 .filledShopping {
-  padding: 40px;
+  padding: 30px;
 }
 
 .titleBtn {
@@ -39,7 +39,7 @@
 
 .cartInfoDiv {
   display: flex;
-  margin-bottom: 16px;
+  margin: 0px 0px 0px 10px;
   gap: 32px;
   border-radius: 12px;
   border: 1px solid #ddd;

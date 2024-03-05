@@ -3,10 +3,14 @@ import styles from "./index.module.css";
 import logo from "../../assets/images/logo.svg";
 import cart_icon from "../../assets/images/cart_icon.png";
 import { Link, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
   const navigate = useNavigate();
   const [menu, setMenu] = useState("Main page");
+  const cartItemsCount = useSelector(
+    (state) => state.products.cartItems.length ?? 0
+  );
   return (
     <div className={styles.navbar}>
       <div className={styles.navlogo}>
@@ -67,7 +71,7 @@ const Navbar = () => {
         <Link to="/cart">
           <img src={cart_icon} alt="" />
         </Link>
-        <div className={styles.navcartcount}>0</div>
+        <div className={styles.navcartcount}>{cartItemsCount}</div>
       </div>
     </div>
   );

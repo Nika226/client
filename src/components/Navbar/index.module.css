@@ -29,6 +29,9 @@
   gap: 3px;
   cursor: pointer;
 }
+.navmenu li > a:visited {
+  color: #626262;
+}
 .navmenu hr {
   border: none;
   width: 80%;
