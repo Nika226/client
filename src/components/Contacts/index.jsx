@@ -27,12 +27,17 @@ const Contacts = () => {
             <p className={styles.paragraphText}>Socials</p>
             <div className={styles.footerImg}>
               <Link
+                className={styles.socImg}
                 to="https://www.instagram.com/startainstitute/"
                 target="_blank"
               >
                 <SlSocialInstagram />
               </Link>
-              <Link to="https://wa.me/+499999999999" target="_blank">
+              <Link
+                className={styles.socImg_wats}
+                to="https://wa.me/+499999999999"
+                target="_blank"
+              >
                 <SiWhatsapp />
               </Link>
             </div>

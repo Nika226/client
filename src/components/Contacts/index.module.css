@@ -31,6 +31,13 @@
   font-size: 20px;
   font-weight: 500;
 }
+.socImg {
+  color: mediumvioletred;
+}
+
+.socImg_wats {
+  color: green;
+}
 
 .Info {
   color: #282828;

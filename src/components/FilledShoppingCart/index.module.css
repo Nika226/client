@@ -34,7 +34,7 @@
 
 .cartOrderDiv {
   max-height: 585px;
-  overflow-y: auto;
+  /* overflow-y: auto;*/
 }
 
 .cartInfoDiv {
